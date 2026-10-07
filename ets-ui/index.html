@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETS 试卷答案提取</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <span class="dot" aria-hidden="true"></span>
+  <h1>ETS 试卷答案提取</h1>
+  <p>数据目录：<span id="curDir">加载中…</span></p>
+</header>
+<div class="toolbar">
+  <button id="latestBtn" type="button">载入最新试卷</button>
+  <button id="refreshBtn" type="button" class="ghost">刷新列表</button>
+  <button id="dirBtn" type="button" class="ghost">更改目录</button>
+  <button id="resetBtn" type="button" class="ghost">恢复默认</button>
+  <span id="pathInfo">加载中…</span>
+  <span id="status" aria-live="polite"></span>
+</div>
+<div class="layout">
+  <aside>
+    <h2>试卷列表</h2>
+    <ul id="paperList"></ul>
+  </aside>
+  <main>
+    <div id="viewer">
+      <div id="viewerHead">
+        <h2 id="viewerTitle">正在加载…</h2>
+        <span id="counts"></span>
+        <span class="spacer"></span>
+        <button id="copyBtn" type="button" class="ghost" disabled>复制全部</button>
+        <button id="downloadBtn" type="button" disabled>下载 .txt</button>
+      </div>
+      <div id="sections"><div class="empty">正在读取数据目录…</div></div>
+    </div>
+  </main>
+</div>
+<div id="dirModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="dirTitle">
+  <div class="modalBox">
+    <h2 id="dirTitle">更改数据目录</h2>
+    <p class="muted">当前：<span id="modalCur"></span></p>
+    <input id="dirInput" type="text" spellcheck="false" placeholder="C:\Users\用户名\AppData\Roaming\ETS">
+    <div class="row">
+      <span class="spacer"></span>
+      <button id="dirCancel" type="button" class="ghost">取消</button>
+      <button id="dirSave" type="button">保存</button>
+    </div>
+    <p id="dirMsg" class="msg"></p>
+  </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
